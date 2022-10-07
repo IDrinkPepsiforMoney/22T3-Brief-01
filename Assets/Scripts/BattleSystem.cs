@@ -32,13 +32,13 @@ public class BattleSystem : MonoBehaviour
 
         // Debug out the two players, power levels.
         Debug.Log ("WOOOAHGHG!! PLAYER ONE'S POWER LEVEL IS " + playerOnePowerLevel + 
-        ", and PLAYER TWO's POweR LevEL iS!" + playerTwoPowerLevel);
+        ", and PLAYER TWO's POweR LevEL iS! " + playerTwoPowerLevel);
 
         // calculate the percentage chance of winning the fight for each character.
         // todo this you'll need to add the two powers together, then divide you characters power against this and multiply the result by 100.
         int totalPower = playerOnePowerLevel + playerTwoPowerLevel;
-        int playerOneChanceToWin = (int)(playerOnePowerLevel / (float)(totalPower * 100f));
-        int playerTwoChanceToWin = (int)(playerTwoPowerLevel / (float)(totalPower * 100f));
+        int playerOneChanceToWin = (int)(playerOnePowerLevel / (float)(totalPower) * 100f);
+        int playerTwoChanceToWin = (int)(playerTwoPowerLevel / (float)(totalPower) * 100f);
 
 
         // Debug out the chance of each character to win.
@@ -58,7 +58,7 @@ public class BattleSystem : MonoBehaviour
             Debug.Log ("Player Two has Won by a " + winsBy + "% margin");
             winner = "Player Two!";
         }
-        else if (playerOneChanceToWin = playerTwoChanceToWin)
+        else if (playerOneChanceToWin == playerTwoChanceToWin)
         {
             Debug.Log ("UNBELIEVABLE FOLKS! THIS IS A DRAW!");
             winner = "bacon";
@@ -67,17 +67,17 @@ public class BattleSystem : MonoBehaviour
 
 
         int playerOneXPReward = 10 + ((playerOneChanceToWin - playerTwoChanceToWin) / 10);
-        int playerTwoXPReward = 10 + ((playerTwoChanceToWin - layerOneChanceToWin) / 10);
+        int playerTwoXPReward = 10 + ((playerTwoChanceToWin - playerOneChanceToWin) / 10);
         
-        if (winner = "Player One!")
+        if (winner == "Player One!")
         {
-            Debug.Log (winner + "has recieved" + playerOneXPReward + "XP. and Player Two has recieved" + playerTwoXPReward + "XP.");
+            Debug.Log (winner + " has recieved" + playerOneXPReward + "XP. and Player Two has recieved " + playerTwoXPReward + "XP.");
         }
-        else if (winner = "Player Two!")
+        else if (winner == "Player Two!")
         {
-            Debug.Log (winner + "has recieved" + playerTwoXPReward + "XP. and Player Two has recieved" + playerOneXPReward + "XP.");
+            Debug.Log (winner + " has recieved" + playerTwoXPReward + "XP. and Player Two has recieved " + playerOneXPReward + "XP.");
         }
-        else if (winner = "bacon")
+        else if (winner == "bacon")
         {
             Debug.Log ("It's a draw! Both players Recieve" + playerOneXPReward + "XP.");
         }
